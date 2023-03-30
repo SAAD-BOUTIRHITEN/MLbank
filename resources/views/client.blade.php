@@ -74,11 +74,11 @@
                                                     <td class="p-2 whitespace-nowrap">
                                                         <div class="text-lg text-center">
                                                             @if ($key->Preditct->status == 'Yes')
-                                                                <x-succe-button class="ml-2">
+                                                                <x-primary-button class="ml-2">
                                                                     {{ __('Oui') }}</x-succe-button>
-                                                            @else
-                                                                <x-test-button class="ml-2">
-                                                                    {{ __('No') }}</x-test-button>
+                                                                @else
+                                                                    <x-test-button class="ml-2">
+                                                                        {{ __('No') }}</x-test-button>
                                                             @endif
                                                         </div>
                                                     </td>
