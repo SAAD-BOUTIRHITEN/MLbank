@@ -4,6 +4,7 @@ use App\Exports\clien;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RempController;
 use App\Models\Client;
+use App\Models\Preditct;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,10 @@ Route::post('/remplir', [RempController::class, 'store'])->name('remp');
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $data = Preditct::selectRaw("SUM(CASE WHEN status = 'Yes' THEN 1 ELSE 0 END) as solvable_count, SUM(CASE WHEN status = 'No' THEN 1 ELSE 0 END) as not_solvable_count")
+        ->firstOrFail();
+
+    return view('dashboard',compact('data'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
