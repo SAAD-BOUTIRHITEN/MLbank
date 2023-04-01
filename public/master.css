@@ -160,15 +160,15 @@ ul {
     opacity: 0;
 }
 
-.head .icons .notif::before {
+.icons .notif::before {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     background-color: var(--red-color);
     border-radius: 100%;
-    right: -8px;
-    top: -5px;
+    right: -1px;
+    top: -2px;
 }
 
 .head .icons img {
@@ -316,7 +316,7 @@ h1::after {
 
 /* end quiq draft */
 
-/* profile + logout 
+/* profile + logout
 .head a::before,
 .head a::after {
     content: "";

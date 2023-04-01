@@ -73,7 +73,7 @@ class RempController extends Controller
             return $row[11];
         }, $data);
 
-        // Transformer les étiquettes en valeurs numériques
+        // Transformer les étiquettes en valeurs boolean
         $labels = array_map(function ($label) {
             return $label == "Y" ? 'Yes' : 'No';
         }, $labels);

@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-
+    <link rel="stylesheet" href="{{ asset('master.css') }}" />
+    <link rel="stylesheet" href="{{ asset('framework.css') }}" />
+    <link rel="stylesheet" href="{{ asset('all.min.css') }}" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -65,11 +67,16 @@
                                 class="uk-button rounded-full t-5 bg-white-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 style="left: -53px; position: relative;top:-12px">
                                 <span class="sr-only">View notifications</span>
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                                </svg>
+
+                                <div class="icons d-flex align-center">
+                                    <span class="notif p-relative">
+                                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                                        </svg>
+                                    </span>
+                                </div>
                             </button>
                             <div uk-dropdown="animation: uk-animation-slide-top-small; animate-out: true">
                                 <ul class="uk-nav uk-dropdown-nav">
@@ -78,7 +85,7 @@
                                     @if (Auth::user()->unreadNotifications()->count() > 0)
                                         @foreach (Auth::user()->unreadNotifications as $notification)
                                             <li><a href="#"
-                                                    style="color: rgba(138, 8, 8, 0.452);font-weight:700">demande de
+                                                    style="color: rgba(255, 0, 0, 0.973);font-weight:700">demande de
                                                     {{ $notification->data['user'] }}</a></li>
                                         @endforeach
                                     @else

@@ -45,6 +45,9 @@
                                                     <div class="font-semibold text-left">credit</div>
                                                 </th>
                                                 <th class="p-2 whitespace-nowrap">
+                                                    <div class="font-semibold text-left">Durée</div>
+                                                </th>
+                                                <th class="p-2 whitespace-nowrap">
                                                     <div class="font-semibold text-center">status</div>
                                                 </th>
                                             </tr>
@@ -72,10 +75,15 @@
                                                         </div>
                                                     </td>
                                                     <td class="p-2 whitespace-nowrap">
+                                                        <div class="text-left font-medium text-green-500">
+                                                            {{ $key->Loan_Amount_Term }}
+                                                        </div>
+                                                    </td>
+                                                    <td class="p-2 whitespace-nowrap">
                                                         <div class="text-lg text-center">
                                                             @if ($key->Preditct->status == 'Yes')
                                                                 <x-primary-button class="ml-2">
-                                                                    {{ __('complété') }}</x-succe-button>
+                                                                    {{ __('Accepter') }}</x-succe-button>
                                                                 @else
                                                                     <x-test-button class="ml-2">
                                                                         {{ __('refusé') }}</x-test-button>

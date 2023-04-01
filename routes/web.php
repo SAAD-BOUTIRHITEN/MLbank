@@ -8,6 +8,8 @@ use App\Models\Preditct;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
 
 use Maatwebsite\Excel\Facades\Excel;
 /*
@@ -39,8 +41,10 @@ Route::post('/remplir', [RempController::class, 'store'])->name('remp');
 Route::get('/dashboard', function () {
     $data = Preditct::selectRaw("SUM(CASE WHEN status = 'Yes' THEN 1 ELSE 0 END) as solvable_count, SUM(CASE WHEN status = 'No' THEN 1 ELSE 0 END) as not_solvable_count")
         ->firstOrFail();
-
-    return view('dashboard',compact('data'));
+       $data1=Preditct::count('id');
+       $clients = Client::latest('created_at')->limit(3)->get();
+       $dateActuelle = Carbon::now();
+    return view('dashboard',compact('data','data1','clients','dateActuelle'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
