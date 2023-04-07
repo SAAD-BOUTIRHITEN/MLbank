@@ -10,7 +10,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <head>
+        <link rel="icon" type="image/png" href="{{asset('icon1.png')}}">
+        <title>Dashboard</title>
+      </head>
 
 </head>
 
@@ -19,7 +22,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('saad') }}
+                {{ __('Dashboard') }}
             </h2>
         </x-slot>
         <div class="py-12">
@@ -35,7 +38,7 @@
                         <div class="welcome bg-white red-10 txt-c-mobile block-mobile">
                             <div class="intro p-20 d-flex space-between bg-eee">
                                 <div>
-                                    <h1 class="m-0 fw-30 p-0">bienvenu</h1>
+                                    <h1 class="m-0 fw-30 p-0">Bienvenu</h1>
                                     <p class="c-grey mt-5 fw-30">Admin</p>
                                 </div>
                                 <img src="{{ asset('logo-removebg-preview_350x200.png') }}" alt=""
@@ -60,8 +63,8 @@
 
                         <!--start quiq draft-->
                         <div class="quiq-draft p-20 bg-white red-10  txt-c-mobile">
-                            <h2 class="mt-0 mb-10 fw-30">Quick Draft</h2>
-                            <p class="mr-10 mt-0 mb-20 c-grey fs-15 fw-15">Write A Draft for your ideas</p>
+                            <h2 class="mt-0 mb-10 fw-30">Digramme de la solvabilité des clients</h2>
+                            <p class="mr-10 mt-0 mb-20 c-grey fs-15 fw-30">2023-2024</p>
                             <canvas width="auto" height="auto" aria - label="Hello ARIA World" role="img"
                                 id="myChart">
                             </canvas>
@@ -73,7 +76,7 @@
                         <!--end targets-->
                         <div class="latest-uploads p-20 bg-white red-10">
 
-                            <h2 style="font-weight: 600;font-size:18px" class="mt-0 mb-20">Dernier Client en
+                            <h2 style="font-weight: 600;font-size:18px;color:green" class="mt-0 mb-20">Dernier Client en
                                 {{ $dateActuelle }}</h2>
                             <ul class="m-0">
                                 @foreach ($clients as $client)
@@ -84,7 +87,7 @@
                                                     width="40" height="40" alt="Alex Shatov">
                                             </div>
                                             <div>
-                                                <span class="d-block">Nouvelle client
+                                                <span style="color: red" class="d-block">Nouvelle client
                                                 </span>
                                                 <span style="color: blue;font-weight:700"
                                                     class="fs-15">{{ $client->Nom }}-{{ $client->prenom }}</span>
@@ -96,11 +99,12 @@
                                     </li>
                                 @endforeach
                             </ul>
+                            {{ $clients->links() }}
                         </div>
                         <!--start tickets-->
                         <div class="tickets p-20 bg-white red-10">
-                            <h2 class="mt-0 mb-10">Tickets Statistics</h2>
-                            <p class="mt-0 mb-20 c-grey fs-15">Everything About Support Tickets</p>
+                            <h2 class="mt-0 mb-10 fw-30">Statistique général</h2>
+                            <p class="mt-0 mb-20 c-grey fs-15 fw-30">2023-2024</p>
                             <div class="uk-animation-toggle" tabindex="0">
                                 <div class="d-flex txt-c gap-20 f-wrap">
 
@@ -137,8 +141,8 @@
                         </div>
                         <!--end tickets-->
                         <div class="targets p-20 bg-white red-10 txt-c-mobile">
-                            <h2 class="mt-0 mb-10">Yearly targets</h2>
-                            <p class="mt-0 mb-20 c-grey fs-15 fw-15">targets of the year</p>
+                            <h2 class="mt-0 mb-10 fw-30">Graphiques en secteurs</h2>
+                            <p class="mt-0 mb-20 c-grey fs-15 fw-30">2023-2024</p>
                             <canvas width="auto" height="auto" id="myChart1"></canvas>
                         </div>
                         <!--start latest news
@@ -403,7 +407,7 @@
         new Chart(ctx1, {
             type: 'bar',
             data: {
-                labels: ['solvable', 'cest pas solvable'],
+                labels: ['solvable', 'Non solvable'],
                 datasets: [{
                     label: 'Total',
                     data: data1,
@@ -424,19 +428,18 @@
         });
 
         const ctx2 = document.getElementById('myChart1');
+        const data11 = [@json($data->solvable_count), @json($data->not_solvable_count)];
         const data2 = {
             labels: [
-                'Red',
-                'Blue',
-                'Yellow'
+                'Solvable',
+                'Non solvable'
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [300, 50, 100],
+                data: data11,
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
+                    'green',
+                    'red'
                 ],
                 hoverOffset: 4
             }]

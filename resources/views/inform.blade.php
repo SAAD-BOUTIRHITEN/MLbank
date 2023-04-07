@@ -5,7 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MC</title>
+    <head>
+        <link rel="icon" type="image/png" href="{{asset('icon1.png')}}">
+        <title>MAROC DU CRÉDIT</title>
+      </head>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.24/dist/css/uikit.min.css" />
 
@@ -138,7 +141,7 @@
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="3+">3+</option>
+                                    <option value="3">3+</option>
 
                                 </select>
                                 <button class="uk-button uk-button-default" type="button" tabindex="-1">

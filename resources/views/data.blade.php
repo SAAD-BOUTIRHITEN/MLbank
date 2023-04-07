@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.4/dist/css/uikit.min.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <head>
+        <link rel="icon" type="image/png" href="{{asset('icon1.png')}}">
+        <title>Client</title>
+      </head>
 </head>
 
 <body>
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Dashboard') }}
+                {{ __('Client') }}
             </h2>
         </x-slot>
 
@@ -25,7 +28,7 @@
 
                         <!-- Table -->
 
-                        <header class="px-5 py-4 border-b border-gray-100 mt-10">
+                        <header class="px-5 py-4 border-b border-gray-100 mb-10">
                             <a href="{{ route('pdf') }}">
                                 <x-primary-button class="ml-2"
                                     data-confirm="Are you sure you want to delete this item?">

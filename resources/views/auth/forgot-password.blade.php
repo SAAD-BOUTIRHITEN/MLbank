@@ -1,6 +1,10 @@
+<head>
+    <link rel="icon" type="image/png" href="{{asset('icon1.png')}}">
+    <title>Login</title>
+  </head>
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        {{ __('Mot de passe oublié? Aucun problème. Indiquez-nous simplement votre adresse e-mail et nous vous enverrons par e-mail un lien de réinitialisation de mot de passe qui vous permettra den choisir un nouveau.') }}
     </div>
 
     <!-- Session Status -->

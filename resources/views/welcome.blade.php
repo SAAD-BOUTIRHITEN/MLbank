@@ -5,7 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MC</title>
+    <head>
+        <link rel="icon" type="image/png" href="{{asset('icon1.png')}}">
+        <title>MAROC DU CRÉDIT</title>
+      </head>
 
     <link rel="stylesheet" href="{{ asset('normalise.css') }}" />
     <link rel="stylesheet" href="{{ asset('elzero.css') }}" />

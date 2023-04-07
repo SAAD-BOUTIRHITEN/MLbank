@@ -59,7 +59,10 @@ class RempController extends Controller
         Notification::send($users, new InvoicePaid($so->prenom));
 
         // Charger le fichier CSV dans un tableau
-        $data = array_map('str_getcsv', file('C:\Mlbank.csv'));
+        //$data = array_map('str_getcsv', file('C:\Mlbank.csv'));
+        $file_path = base_path('public/Mlbank.csv');
+        $data = array_map('str_getcsv', file($file_path));
+
 
         // Supprimer la première ligne (l'en-tête)
         array_shift($data);
